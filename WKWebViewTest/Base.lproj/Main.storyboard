@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="e31-bk-5tn">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,113 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WKWebViewTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="JtI-b1-yof">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="2"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="txK-AC-Ed8"/>
+                                </constraints>
+                            </progressView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fbb-hT-SkN">
+                                <rect key="frame" x="0.0" y="559" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="MHO-FJ-vpm"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="Back" image="icon_back" id="e1n-cF-ACH">
+                                        <connections>
+                                            <action selector="goBack:" destination="BYZ-38-t0r" id="Vat-6r-ZyK"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem width="42" style="plain" systemItem="fixedSpace" id="T5w-Yt-Lgm"/>
+                                    <barButtonItem title="Forward" image="icon_forward" id="KZ1-gf-Xlw">
+                                        <connections>
+                                            <action selector="goForward:" destination="BYZ-38-t0r" id="cSk-kN-6Ly"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Ca9-Uj-5dy"/>
+                                    <barButtonItem title="Stop" image="icon_stop" id="OWo-L1-FCu">
+                                        <connections>
+                                            <action selector="stopReload:" destination="BYZ-38-t0r" id="uu7-Fc-k6B"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="JtI-b1-yof" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="0ed-hs-Jix"/>
+                            <constraint firstItem="JtI-b1-yof" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="2tn-6v-Z9e"/>
+                            <constraint firstItem="Fbb-hT-SkN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ROQ-32-qou"/>
+                            <constraint firstItem="Fbb-hT-SkN" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="XwF-bm-34K"/>
+                            <constraint firstItem="Fbb-hT-SkN" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="uwX-bE-fq7"/>
+                            <constraint firstAttribute="trailing" secondItem="JtI-b1-yof" secondAttribute="trailing" id="wMD-BH-w3k"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" id="oT6-Bw-AAB">
+                        <nil key="title"/>
+                        <view key="titleView" contentMode="scaleToFill" id="PQt-n0-paX">
+                            <rect key="frame" x="187.5" y="22" width="0.0" height="0.0"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="NSF-Qu-hfE">
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="URL" returnKeyType="go"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="BYZ-38-t0r" id="8qJ-MW-xCl"/>
+                                    </connections>
+                                </textField>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="NSF-Qu-hfE" secondAttribute="trailing" id="2G2-VO-Coj"/>
+                                <constraint firstItem="NSF-Qu-hfE" firstAttribute="leading" secondItem="PQt-n0-paX" secondAttribute="leading" id="Crc-QL-we1"/>
+                                <constraint firstItem="NSF-Qu-hfE" firstAttribute="top" secondItem="PQt-n0-paX" secondAttribute="top" id="MJK-HM-eAd"/>
+                                <constraint firstAttribute="bottom" secondItem="NSF-Qu-hfE" secondAttribute="bottom" id="ayM-uT-KbI"/>
+                            </constraints>
+                        </view>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="backButton" destination="e1n-cF-ACH" id="5Ui-zv-vdE"/>
+                        <outlet property="barBackgroundView" destination="PQt-n0-paX" id="rhm-cS-su1"/>
+                        <outlet property="forwardButton" destination="KZ1-gf-Xlw" id="krV-5F-spK"/>
+                        <outlet property="inputTextField" destination="NSF-Qu-hfE" id="ROb-GY-sfa"/>
+                        <outlet property="progressView" destination="JtI-b1-yof" id="58j-sW-LF9"/>
+                        <outlet property="stopReloadButton" destination="OWo-L1-FCu" id="0qr-1S-3ID"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="888.79999999999995" y="-187.55622188905548"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="2eJ-ea-Ihl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="e31-bk-5tn" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="EBR-CW-epP">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="ORb-Gq-Q65"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ofT-9b-fGM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="133.59999999999999" y="-564.46776611694156"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="icon_back" width="34" height="34"/>
+        <image name="icon_forward" width="34" height="34"/>
+        <image name="icon_stop" width="17" height="17"/>
+    </resources>
 </document>
